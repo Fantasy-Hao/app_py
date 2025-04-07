@@ -43,7 +43,7 @@ def app(fun, x1, K, lambda_, rho, n):
 
 
 # 参数设置
-d = 200
+d = 100
 a, b = 1, 2  # 均值和标准差
 
 # 创建并截断正态分布对象，然后生成随机向量r
@@ -62,10 +62,10 @@ c = 1
 fun = lambda x: c * d - c * np.sum(np.cos(3 * np.pi * x), axis=1) + np.diag(x @ A @ x.T)
 
 # 算法参数
-K = 10000
+K = 8000
 lambda_ = 1 / np.sqrt(d)
-rhos = [0.995, 0.997, 0.999]
-n = 50
+rhos = [0.993, 0.995, 0.997]
+n = 40
 
 # 生成初始点
 np.random.seed(42)
