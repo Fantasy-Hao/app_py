@@ -16,7 +16,7 @@ def mlp_adam(model, X, y, epochs=400, lr=1e-3):
         loss.backward()
         optimizer.step()
         loss_history.append(loss.item())
-        print(f'MLP_Adam - Iter: {i + 1}, Loss: {loss.item():.12e}')
+        print(f'MLP_Adam - Iter: {i + 1}, Loss: {loss.item():.8e}')
 
     return loss_history
 
@@ -42,6 +42,6 @@ def mlp_lbfgs(model, X, y, epochs=400, max_iter=20, tolerance_grad=1e-7, toleran
     for epoch in range(epochs):
         loss = optimizer.step(closure)
         loss_history.append(loss.detach().item())
-        print(f'MLP_LBFGS - Iter: {epoch + 1}, Loss: {loss:.12e}')
+        print(f'MLP_LBFGS - Iter: {epoch + 1}, Loss: {loss:.8e}')
 
     return loss_history

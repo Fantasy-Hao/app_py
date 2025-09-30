@@ -5,7 +5,13 @@ def create_model(layer_dims):
     """创建一个简单的MLP模型结构."""
     layers = []
     for i in range(len(layer_dims) - 1):
-        layers.append(torch.nn.Linear(layer_dims[i], layer_dims[i + 1], bias=(i < len(layer_dims) - 2)))
+        layers.append(
+            torch.nn.Linear(
+                layer_dims[i], 
+                layer_dims[i + 1], 
+                bias=(i < len(layer_dims) - 2)
+                )
+            )
         if i < len(layer_dims) - 2:
             layers.append(torch.nn.Tanh())
     return torch.nn.Sequential(*layers).double()

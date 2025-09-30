@@ -2,7 +2,7 @@ import numpy as np
 from scipy.stats import norm, qmc
 
 
-def ada_app(fun, x1, K, lambda_, rho, n):
+def app(fun, x1, K, lambda_, rho, n):
     d = len(x1)
     xk = np.array(x1, dtype=np.float64)
     XTrace = np.zeros((K, d))
@@ -33,12 +33,8 @@ def ada_app(fun, x1, K, lambda_, rho, n):
         xk = np.average(t, axis=0, weights=weights)
 
         # Update and record
-        if f_mean / fk < 1 / (i + 1):
-            alpha *= rho ** i
-        else:
-            alpha /= rho
-
+        alpha /= rho
         XTrace[i] = xk
         YTrace[i] = fk
-        print(f'APP - Iter: {i + 1} alpha: {alpha:.8e} f_mean: {f_mean:.8e} Objective: {fk:.8e};')
+        print(f'APP - Iter: {i + 1} Objective: {fk:.8e}')
     return XTrace, YTrace, fc
