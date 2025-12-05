@@ -1,5 +1,5 @@
-# Asymptotic Proximal Point(APP)
-Python implementation of the Asymptotic Proximal Point(APP) method.  
+# Asymptotic Proximal Point (APP)
 
-## Code Repository   
-MATLAB implementation of APP: https://github.com/xiaopengluo/app.  
+This repository provides a Python implementation of the **Asymptotic Proximal Point (APP)** method.  
+
+The original MATLAB implementation is available at: https://github.com/xiaopengluo/app
